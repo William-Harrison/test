@@ -11,19 +11,19 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: "CLA Assistant"
-        if: (github.event.comment.body == "recheck" || github.event.comment.body == "I have read the CLA Document and I hereby sign the CLA") || github.event_name == "pull_request_target"
+        if: (github.event.comment.body == 'recheck' || github.event.comment.body == 'I have read the CLA Document and I hereby sign the CLA') || github.event_name == 'pull_request_target'
         uses: contributor-assistant/github-action@master
         env:
           GITHUB_TOKEN: ${{ secrets.BOT }}
           PERSONAL_ACCESS_TOKEN: ${{ secrets.BOT }}
         with:
-          path-to-signatures: "signatures/version1/cla.json"
-          path-to-document: "https://github.com/cla-assistant/github-action/blob/master/SAPCLA.md"
-          branch: "main"
+          path-to-signatures: 'signatures/version1/cla.json'
+          path-to-document: 'https://github.com/cla-assistant/github-action/blob/master/SAPCLA.md'
+          branch: 'main'
           allowlist: WDH-Bot,bot*
-          signed-commit-message: "$contributorName has signed the CLA."
-          create-file-commit-message: "Created CLA Signatures File"
-          custom-allsigned-prcomment: "✅ All Contributors have signed the CLA."
+          signed-commit-message: '$contributorName has signed the CLA.'
+          create-file-commit-message: 'Created CLA Signatures File'
+          custom-allsigned-prcomment: '✅ All Contributors have signed the CLA.'
 
           #remote-organization-name: enter the remote organization name where the signatures should be stored (Default is storing the signatures in the same repository)
           #remote-repository-name: enter the  remote repository name where the signatures should be stored (Default is storing the signatures in the same repository)
