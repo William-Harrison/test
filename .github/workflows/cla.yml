@@ -12,7 +12,7 @@ jobs:
     steps:
       - name: "CLA"
         if: (github.event.comment.body == 'recheck' || github.event.comment.body == 'I have read the CLA Document and I hereby sign the CLA') || github.event_name == 'pull_request_target'
-        uses: William-Harrison/cla-assistant@master
+        uses: contributor-assistant/github-action@master
         env:
           GITHUB_TOKEN: ${{ secrets.CLA_TOKEN }}
           PERSONAL_ACCESS_TOKEN: ${{ secrets.CLA_TOKEN }}
@@ -26,4 +26,3 @@ jobs:
           custom-allsigned-prcomment: "All contributors have signed the CLA."
           remote-organization-name: "William-Harrison"
           remote-repository-name: "cla"
-          custom-notsigned-prcomment: "Please read and agree to the [CLA](https://github.com/William-Harrison/cla/blob/main/cla.md).\n\nIf you agree to the CLA, please comment on this pull request:\n`I have read the CLA Document and I hereby sign the CLA`\n\n###### To trigger a recheck please comment `recheck`."
