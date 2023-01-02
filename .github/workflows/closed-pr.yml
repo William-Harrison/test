@@ -3,10 +3,11 @@ name: "Closed PR"
 on:
   pull_request_target:
     types:
-      - closed
+      - opened, closed
 
 jobs:
   merged:
+    name: "Merged"
     if: github.event.pull_request.merged == true
     runs-on: ubuntu-latest
     steps:
@@ -16,9 +17,10 @@ jobs:
         uses: peter-evans/create-or-update-comment@v2
         with:
           issue-number: ${{ github.event.pull_request.number }}
-          body-file: "comments/merged.md"
+          body-file: ".github/comments/merged.md"
 
   closed:
+    name: "Closed"
     if: github.event.pull_request.merged == false
     runs-on: ubuntu-latest
     steps:
@@ -28,4 +30,4 @@ jobs:
         uses: peter-evans/create-or-update-comment@v2
         with:
           issue-number: ${{ github.event.pull_request.number }}
-          body-file: "comments/closed.md"
+          body-file: ".github/comments/closed.md"
