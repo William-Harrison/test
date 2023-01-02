@@ -5,6 +5,7 @@
 ---
 
 ## What to do next
+Just follow the steps below and you can start using your domain!
 
 #### Server Owners
 If your domain points to a server you own, add your-domain.is-a.dev to your domain configuration. For HTTPS, you will have to configure an SSL certificate to allow the new subdomain to work ([here's why](https://get.dev/#:~:text=The%20.dev%20top%2Dlevel%20domain%20is%20included%20on%20the%20HSTS%20preload%20list%2C%20making%20HTTPS%20required%20on%20all%20connections%20to%20.dev%20websites%20and%20pages%20without%20needing%20individual%20HSTS%20registration%20or%20configuration.%20Security%20is%20built%20in.)).
