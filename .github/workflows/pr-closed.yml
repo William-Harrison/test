@@ -1,9 +1,9 @@
-name: "Closed PR"
+name: "PR Closed"
 
 on:
   pull_request_target:
     types:
-      - opened, closed
+      - closed
 
 jobs:
   merged:
