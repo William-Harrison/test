@@ -2,11 +2,12 @@ name: "PR"
 
 on:
   pull_request_target:
+    branches: ["main", "master"]
     types: ["opened", "closed"]
 
 jobs:
   opened:
-    if: github.event.pull_request.opened == true
+    if: github.event_name == "pull_request_opened"
     name: "Opened"
     runs-on: ubuntu-latest
     steps:
