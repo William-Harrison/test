@@ -7,7 +7,7 @@ on:
 
 jobs:
   opened:
-    if: github.event.action === "opened"
+    if: github.event.action == "opened"
     name: "Opened"
     runs-on: ubuntu-latest
     steps:
