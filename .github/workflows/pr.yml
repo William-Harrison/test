@@ -33,7 +33,7 @@ jobs:
           body-file: ".github/comments/merged.md"
 
   closed:
-    if: github.event.pull_request.merged == false
+    if: github.event.action == 'closed' && github.event.pull_request.merged == false
     name: "Closed"
     runs-on: ubuntu-latest
     steps:
