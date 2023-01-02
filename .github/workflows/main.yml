@@ -23,4 +23,4 @@ jobs:
 
       # Runs a single command using the runners shell
       - name: test
-        run: ls ${{ GITHUB_ACTION_PATH }}
+        run: ls {{ $GITHUB_ACTION_PATH }}
