@@ -12,7 +12,8 @@ jobs:
     steps:
       - uses: peter-evans/create-or-update-comment@v2
         with:
-          body-file: "${{ GITHUB_WORKSPACE }}/.github/closed-pr/merged-comment.md"
+          issue-number: ${{ github.event.pull_request.number }}
+          body-file: ".github/closed-pr/merged-comment.md"
 
   closed:
     if: github.event.pull_request.merged == false
@@ -20,4 +21,5 @@ jobs:
     steps:
       - uses: peter-evans/create-or-update-comment@v2
         with:
-          body-file: "${{ GITHUB_WORKSPACE }}/.github/closed-pr/closed-comment.md"
+          issue-number: ${{ github.event.pull_request.number }}
+          body-file: ".github/closed-pr/closed-comment.md"
