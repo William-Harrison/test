@@ -2,13 +2,25 @@ name: "PR"
 
 on:
   pull_request_target:
-    types:
-      - closed
+    types: ["opened", "closed"]
 
 jobs:
+  opened:
+    if: github.event.pull_request.opened == true
+    name: "Opened"
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+
+      - name: "Comment"
+        uses: peter-evans/create-or-update-comment@v2
+        with:
+          issue-number: ${{ github.event.pull_request.number }}
+          body-file: ".github/comments/opened.md"
+
   merged:
-    name: "Merged"
     if: github.event.pull_request.merged == true
+    name: "Merged"
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
@@ -20,8 +32,8 @@ jobs:
           body-file: ".github/comments/merged.md"
 
   closed:
-    name: "Closed"
     if: github.event.pull_request.merged == false
+    name: "Closed"
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
