@@ -1,0 +1,19 @@
+name: "PR"
+
+on:
+  pull_request_target:
+    types:
+      - opened
+
+jobs:
+  opened:
+    name: "Opened"
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+
+      - name: "Comment"
+        uses: peter-evans/create-or-update-comment@v2
+        with:
+          issue-number: ${{ github.event.pull_request.number }}
+          body-file: ".github/comments/opened.md"
